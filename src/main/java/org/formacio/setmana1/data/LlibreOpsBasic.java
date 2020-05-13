@@ -25,7 +25,11 @@ public class LlibreOpsBasic {
 	 */
 	@Transactional
 	public Llibre carrega(String isbn) throws LlibreNoExisteixException {
-		return em.find(Llibre.class, isbn);
+		if (!existeix(isbn)) {
+			throw new LlibreNoExisteixException();
+		} else {
+			return em.find(Llibre.class, isbn);
+		}
 	}
 
 	/**
@@ -86,7 +90,12 @@ public class LlibreOpsBasic {
 	 * existeix, retorna null
 	 */
 	public Recomanacio recomenacioPer(String isbn) {
-		return null;
+		if (existeix(isbn)) {
+			Llibre llibre = em.find(Llibre.class, isbn);
+			return llibre.getRecomanacio();
+		} else {
+			return null;
+		}
 	}
 
 }
