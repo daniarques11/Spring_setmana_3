@@ -1,21 +1,39 @@
 package org.formacio.setmana1.domini;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Repository;
 
 /**
  * Completa amb annotacions aquesta classe per tal que sigui una entitat
  * mapejada a la taula T_LLIBRES, tal com esta definida a src/main/resources/schema.sql
  * La clau primaria es la propietat isbn. Important: aquesta clau NO se autogenera. S'assigna des de l'aplicacio
  */
+@Repository
+@Entity
+@Table(name="T_LLIBRES")
 public class Llibre {
 
+	@Id
+	@Column(name="LLI_ISBN")
 	private String isbn;
 	
+	@Column(name="LLI_AUTOR")
 	private String titol;
 	
+	@Column(name="LLI_TITOL")
 	private String autor;
 	
+	@Column(name="LLI_PAGINES")
 	private Integer pagines;
 
+	@Column(name="LLI_RECOMANACIO")
+	@Enumerated(EnumType.STRING)
 	// fitxeu-vos que aquesta propietat, a la base de dades, se guarda com VARCHAR2, no com INT.
 	// Aixo requeria d'una annotacio especifica
 	private Recomanacio recomanacio;
