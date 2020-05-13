@@ -50,11 +50,14 @@ public class LlibreOpsBasic {
 	 * @return true si s'ha esborrat el llibre, false si no existia
 	 */
 	@Transactional
-	// TO-DO afegir possibilitat que no es trobi l'objecte a la BDD
 	public boolean elimina(String isbn) {
 		Llibre eliminar = em.find(Llibre.class, isbn);
-		em.remove(eliminar);
-		return true;
+		if (eliminar != null) {
+			em.remove(eliminar);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
