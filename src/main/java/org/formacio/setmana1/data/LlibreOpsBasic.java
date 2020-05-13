@@ -73,7 +73,12 @@ public class LlibreOpsBasic {
 	 * (Aquest metode no llanca excepcions!)
 	 */
 	public boolean existeix(String isbn) {
-		return false;
+		Llibre eliminar = em.find(Llibre.class, isbn);
+		if (eliminar != null) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
