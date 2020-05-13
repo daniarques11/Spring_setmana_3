@@ -11,69 +11,71 @@ import org.springframework.stereotype.Repository;
 
 /**
  * Completa amb annotacions aquesta classe per tal que sigui una entitat
- * mapejada a la taula T_LLIBRES, tal com esta definida a src/main/resources/schema.sql
- * La clau primaria es la propietat isbn. Important: aquesta clau NO se autogenera. S'assigna des de l'aplicacio
+ * mapejada a la taula T_LLIBRES, tal com esta definida a
+ * src/main/resources/schema.sql La clau primaria es la propietat isbn.
+ * Important: aquesta clau NO se autogenera. S'assigna des de l'aplicacio
  */
 @Repository
 @Entity
-@Table(name="T_LLIBRES")
+@Table(name = "T_LLIBRES")
 public class Llibre {
 
 	@Id
-	@Column(name="LLI_ISBN")
+	@Column(name = "LLI_ISBN")
 	private String isbn;
-	
-	@Column(name="LLI_AUTOR")
+
+	@Column(name = "LLI_AUTOR")
 	private String titol;
-	
-	@Column(name="LLI_TITOL")
+
+	@Column(name = "LLI_TITOL")
 	private String autor;
-	
-	@Column(name="LLI_PAGINES")
+
+	@Column(name = "LLI_PAGINES")
 	private Integer pagines;
 
-	@Column(name="LLI_RECOMANACIO")
+	@Column(name = "LLI_RECOMANACIO")
 	@Enumerated(EnumType.STRING)
-	// fitxeu-vos que aquesta propietat, a la base de dades, se guarda com VARCHAR2, no com INT.
+	// fitxeu-vos que aquesta propietat, a la base de dades, se guarda com VARCHAR2,
+	// no com INT.
 	// Aixo requeria d'una annotacio especifica
 	private Recomanacio recomanacio;
-	
+
 	public String getIsbn() {
 		return isbn;
 	}
-	
+
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-	
+
 	public String getTitol() {
 		return titol;
 	}
-	
+
 	public void setTitol(String titol) {
 		this.titol = titol;
 	}
-	
+
 	public String getAutor() {
 		return autor;
 	}
-	
+
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
-	
+
 	public Integer getPagines() {
 		return pagines;
 	}
-	
+
 	public void setPagines(Integer pagines) {
 		this.pagines = pagines;
 	}
-	
+
 	public Recomanacio getRecomanacio() {
 		return recomanacio;
 	}
-	
+
 	public void setRecomanacio(Recomanacio recomanacio) {
 		this.recomanacio = recomanacio;
 	}
