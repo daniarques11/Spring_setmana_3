@@ -24,10 +24,10 @@ public class Llibre {
 	@Column(name = "LLI_ISBN")
 	private String isbn;
 
-	@Column(name = "LLI_AUTOR")
+	@Column(name = "LLI_TITOL")
 	private String titol;
 
-	@Column(name = "LLI_TITOL")
+	@Column(name = "LLI_AUTOR")
 	private String autor;
 
 	@Column(name = "LLI_PAGINES")
